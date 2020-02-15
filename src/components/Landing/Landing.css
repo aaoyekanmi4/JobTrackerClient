@@ -1,0 +1,27 @@
+/* Landing */
+#steps {
+    margin-top:100px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+}
+.step {
+    border: 1px solid black;  
+    width:300px;
+    height:300px;
+    margin:0;
+
+    background: gray;
+
+}
+
+#get-started {
+    width:200px;
+    font-size:16px;
+   
+}
+.button-holder {
+    margin: 30px auto;
+    width:fit-content;
+
+}
