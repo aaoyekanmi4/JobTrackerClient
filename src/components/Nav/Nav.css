@@ -6,3 +6,19 @@ nav {
 
     
 }
+
+.nav-links {
+    list-style-type:none;
+
+}
+.nav-link{
+    border:none;
+    text-transform:capitalize;
+    font-weight:600;
+}
+a {
+    margin-right:20px;
+}
+.nav-link:hover {
+    color:white;
+}

@@ -6,22 +6,38 @@
     justify-content:space-evenly;
 }
 .step {
-    border: 1px solid black;  
+    border: 1px solid royalblue;
+    color:royalblue;
+    text-align:center;
+    padding:20px;
+    
+
     width:300px;
     height:300px;
     margin:0;
 
-    background: gray;
+    
 
 }
 
 #get-started {
     width:200px;
     font-size:16px;
+    border:1px solid white;
+    text-align:center;
+    border-radius:10px;
+    background:royalblue;
+    color:white;
+    font-weight:600;
+    padding:10px;
+    letter-spacing: 1px;
+
+    
    
 }
 .button-holder {
     margin: 30px auto;
     width:fit-content;
+   
 
 }

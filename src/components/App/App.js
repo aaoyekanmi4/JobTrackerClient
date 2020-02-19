@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
 
-
 import ContactForm from '../ContactForm/ContactForm';
 import Nav  from '../Nav/Nav';
 import JobDetail from '../JobDetail/JobDetail';
@@ -27,7 +26,7 @@ function App() {
       <Route path="/jobs">
       <JobList />
       </Route>
-      <Route path="/">
+      <Route exact path="/">
       <Landing />
       </Route>
       <Route path="/login">
