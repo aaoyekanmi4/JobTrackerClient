@@ -1,5 +1,5 @@
 import React from "react";
-import "./JobFrom.css";
+import "./JobForm.css";
 
 const JobForm = () => {
   return (

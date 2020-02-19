@@ -1,24 +1,27 @@
-/* Forms */
-form {
-    width:500px;
-    margin:10% auto;
-
+/* Job List */
+ul {
+    list-style-type:none;
+  
 }
-h1 {
-    text-align:center;
+span {
+    margin:0 20px;
 }
-input {
-    width:100%;
+li {
+    border:1px solid black;
     margin:10px 0px;
 }
-input[type="submit"] {
-    width:100%;
-    
+a {
+    text-decoration:none;
+    color: black;
+    float:right;
 }
-.button-holder {
-    margin: 30px auto;
-    width:fit-content;
-
+.view-details {
+    float:right;
+    margin-right:10px;
+}
+#jobs-list-container {
+    width:600px;
+    margin:0 auto;
 }
 /* Phone size screens*/
 @media screen and (max-width:600px) {

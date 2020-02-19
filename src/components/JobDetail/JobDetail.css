@@ -30,3 +30,38 @@
     width:400px;
     height:300px;
 }
+/* Phone size screens*/
+@media screen and (max-width:600px) {
+    #jobs-list-container {
+        width:100%;
+        
+    }
+    li {
+        width:100%;
+    }
+
+    .contact {
+        width:100%;
+    }
+    span{
+        margin:0 2px;
+    }
+    ul {
+        margin:0 auto;
+        padding:0;
+    }
+    form {
+        width:100%;
+    }
+    .step {
+        margin:20px 0;
+    }
+    .job-and-status {
+    
+        flex-direction:column;
+    }
+    #job-details, #job-status {
+        flex:100%;
+    }
+
+}
