@@ -4,6 +4,7 @@ import './Landing.css';
 const Landing = () => {
     return (
         <main>
+           <h1>Job Tracker</h1>
         <section id="steps">
     
         <div class="step">

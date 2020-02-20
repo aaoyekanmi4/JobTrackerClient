@@ -3,7 +3,6 @@
 .job-and-status {
   display: flex;
   flex-direction: row;
-  height: 33vh;
 }
 #job-details {
   flex: 60%;
