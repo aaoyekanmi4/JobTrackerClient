@@ -1,26 +1,56 @@
 /* Job List */
+@import url('https://fonts.googleapis.com/css?family=Hind+Vadodara:700&display=swap');
+
+
 ul {
     list-style-type:none;
   
 }
+#month, #day {
+    font-family: 'Hind Vadodara', 'sans-serif';
+    text-transform:uppercase;
+    font-size:20px;
+    margin:5px 0;
+}
+.applied {
+    color:rgb(22, 109, 22);
+    font-weight:600;
+}
+.not-applied {
+    color:rgb(71, 67, 67);
+    font-weight:600;
+}
+#role {
+    color:rgb(31, 30, 30);
+    margin:5px 0;
+    font-weight:600;
+}
 span {
+    display:inline-block;
     margin:0 20px;
+    width:200px;
+}
+
+#company {
+    font-size:20px;
+    font-weight:700;
+    text-transform:capitalize;
+    margin: 5px 0;
 }
 li {
-    border:1px solid black;
-    margin:10px 0px;
+    display:flex;
+    align-items:center;
+    margin:30px 0px;
+    padding:10px 0px;
+    border-bottom:1px solid royalblue;
+  
 }
-a {
-    text-decoration:none;
-    color: black;
-    float:right;
-}
-.view-details {
-    float:right;
-    margin-right:10px;
+
+h1 {
+    color:royalblue;
 }
 #jobs-list-container {
-    width:800px;
+    width:80%;
     margin:0 auto;
 }
 /* Phone size screens*/
