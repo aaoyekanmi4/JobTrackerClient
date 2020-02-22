@@ -20,9 +20,10 @@ function App() {
        <Route path="/add-contact">
       <ContactForm />
        </Route> 
-       <Route path="/job-detail">
-      <JobDetail />
-      </Route>
+       <Route path="/job-detail/:job_id"
+         render ={({ match }) => <JobDetail jobId ={match.params.job_id}/> }/>
+    
+
       <Route path="/jobs">
       <JobList />
       </Route>
