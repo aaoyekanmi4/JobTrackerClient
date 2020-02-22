@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useContext} from "react";
+import {JobsContext } from '../../context/JobsContext';
+import { useHistory }from 'react-router-dom'
 import "./JobForm.css";
 
 const JobForm = () => {
+  const history = useHistory();
+
+  const { addJob } = useContext(JobsContext);
   const [jobEntry, setJobEntry] = useState({
     company: "",
     job_role: "",
     job_location: "",
     job_description: "",
     found_at: "",
-    applied: "",
-    phone_screen: "",
-    interview: "",
-    offer: ""
+    applied: '',
+    phone_screen:'',
+    interview: '',
+    offer: ''
   });
 
   const handleChange = event => {
@@ -25,7 +30,10 @@ const JobForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(jobEntry);
+ 
+  
+    addJob(jobEntry);
+    history.push('/jobs')
   };
   return (
     <form onSubmit={handleSubmit}>

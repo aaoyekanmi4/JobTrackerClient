@@ -19,7 +19,7 @@ const JobsContextProvider = props => {
       .catch(err => setError(err));
   };
   const getJobById=(id)=> {
-    fetch(`http://localhost:8000/api/jobs/${Number(id)}`)
+    fetch(`http://localhost:8000/api/jobs/${id}`)
       .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -29,8 +29,31 @@ const JobsContextProvider = props => {
       .then(responseJSON => setSingleJob(responseJSON))
       .catch(err => setError(err))
   }
+  
+  const addJob =(job)=> {
+      
+    for (let [key, value] of Object.entries(job)){
+      if (value ===''){
+        job[key]=null;
+      }
+    }
+    console.log(job);
+    fetch('http://localhost:8000/api/jobs/', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(job)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    })
+  }
   return (
-    <JobsContext.Provider value={{ jobs, getAllJobs, singleJob, getJobById, error }}>
+    <JobsContext.Provider value={{ jobs, getAllJobs, singleJob, getJobById,addJob, error }}>
       {props.children}
     </JobsContext.Provider>
   );
