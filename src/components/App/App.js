@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
-
+import { JobsContext } from '../../context/JobsContext';
 import ContactForm from '../ContactForm/ContactForm';
 import Nav  from '../Nav/Nav';
 import JobDetail from '../JobDetail/JobDetail';
@@ -12,6 +12,8 @@ import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 
 function App() {
+
+  
   return (
    
     <div className="App">
@@ -39,6 +41,9 @@ function App() {
       <Route path="/add-job">
       <JobForm />
       </Route>
+      <Route path="/edit-job/:job_id"
+         render ={({ match }) => <JobForm jobId ={match.params.job_id}/> }/>
+    
       </Switch>
 
     </div>

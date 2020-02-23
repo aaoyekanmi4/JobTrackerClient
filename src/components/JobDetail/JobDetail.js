@@ -1,12 +1,13 @@
 import React, { useContext,useEffect } from "react";
 import { Link } from "react-router-dom";
+import * as moment from "moment";
 import { JobsContext } from "../../context/JobsContext";
 
 import "./JobDetail.css";
 const JobDetail = props => {
   const { singleJob,getJobById, error } = useContext(JobsContext);
  
-    //Call the fetch API for to GET all jobs on initial mount
+    //Call the fetch API for to GET job on mount
     useEffect(() => {
       if (!error) {
         console.log(props);
@@ -20,29 +21,32 @@ const JobDetail = props => {
       <div id="details-container">
         <div class="job-and-status">
           <div id="job-details">
-            <Link to="/add-job">
+          <Link to={`/edit-job/${props.jobId}`}>
               <div>Edit Job</div>
             </Link>
             <h2 id="company-detail">{singleJob.company}</h2>
             <h2 id="role-detail">{singleJob.job_role}</h2>
             <h3 id="location">{singleJob.location}</h3>
             <h3>
-              Date Added: <span id="date-detail">2/16/2020</span>
+  Date Added: <span id="date-detail">{moment(singleJob.date_created).format("MMM DD, YYYY")}</span>
             </h3>
+            <article>
+              <span><h3>Description:</h3> </span>{singleJob.job_description}
+            </article>
           </div>
           <div id="job-status">
             <h3>
-              Applied: <span id="application-status">2/16/2020</span>
+              Applied: <span id="application-status">{moment(singleJob.applied).format("MMM DD, YYYY")}</span>
             </h3>
 
             <h4>
-              Phone Screen: <span id="phone screen">3/2/2020</span>
+              Phone Screen: <span id="phone screen">{singleJob.phone_screen}</span>
             </h4>
             <h4>
-              Interview: <span id="interview-status">N/A</span>
+              Interview: <span id="interview-status">{singleJob.interview}</span>
             </h4>
             <h4>
-              Offer: <span id="offer">N/A</span>
+              Offer: <span id="offer">{singleJob.offer}</span>
             </h4>
           </div>
         </div>

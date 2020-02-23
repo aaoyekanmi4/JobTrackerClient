@@ -17,8 +17,8 @@ const JobList = () => {
 
   //Create a list item for eachjobs returned from api call
   const jobListItems = () => {
-    return jobs.map(job => (
-      <li>
+    return jobs.map((job,index) => (
+      <li key={index}>
         <span>
           <p id="month">{moment(job.date_created).format("MMM")}</p>
           <p id="day">{moment(job.date_created).format("DD")}</p>
@@ -34,7 +34,7 @@ const JobList = () => {
           {job.applied ? "Applied" : "Not Applied"}
         </span>
         <Link to={`/job-detail/${job.id}`}>
-          <span class="view-details">View Details</span>
+          <span className="view-details">View Details</span>
         </Link>
       </li>
     ));

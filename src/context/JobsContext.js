@@ -26,7 +26,15 @@ const JobsContextProvider = props => {
         }
         return response.json();
       })
-      .then(responseJSON => setSingleJob(responseJSON))
+      .then(job=> 
+        {
+          for (let [key, value] of Object.entries(job)){
+            if (value ===null){
+              job[key]='';
+            }
+          }
+          setSingleJob(job)
+        })
       .catch(err => setError(err))
   }
   

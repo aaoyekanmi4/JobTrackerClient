@@ -1,12 +1,12 @@
-import React, { useState,useContext} from "react";
+import React, { useState,useContext, useEffect} from "react";
 import {JobsContext } from '../../context/JobsContext';
 import { useHistory }from 'react-router-dom'
 import "./JobForm.css";
 
-const JobForm = () => {
+const JobForm = (props) => {
   const history = useHistory();
 
-  const { addJob } = useContext(JobsContext);
+  const { addJob, singleJob} = useContext(JobsContext);
   const [jobEntry, setJobEntry] = useState({
     company: "",
     job_role: "",
@@ -18,7 +18,20 @@ const JobForm = () => {
     interview: '',
     offer: ''
   });
+ 
+  useEffect(()=> {
+    console.log(typeof singleJob.id);
+    const id = Number(props.jobId);
+    if(singleJob.id===id){
+  
+      setJobEntry(prevState => {return {...prevState, ...singleJob}})
+    }
+   
+  }, [])
 
+ 
+  
+ 
   const handleChange = event => {
     const target = event.target;
     const value = target.value;
@@ -35,6 +48,8 @@ const JobForm = () => {
     addJob(jobEntry);
     history.push('/jobs')
   };
+
+  
   return (
     <form onSubmit={handleSubmit}>
       <div id="job-overview">
