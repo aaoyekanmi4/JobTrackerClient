@@ -7,7 +7,7 @@ import "./JobList.css";
 const JobList = () => {
   const { getAllJobs, jobs, error } = useContext(JobsContext);
 
-  //Call the fetch API for to GET all jobs on initial mount
+ console.log('I rendered');
   useEffect(() => {
     if (!error) {
       getAllJobs();
@@ -15,7 +15,7 @@ const JobList = () => {
     // eslint-disable-next-line
   }, []);
 
-  //Create a list item for eachjobs returned from api call
+  //Create a list item for each job returned from api call
   const jobListItems = () => {
     return jobs.map((job,index) => (
       <li key={index}>

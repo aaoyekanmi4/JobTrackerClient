@@ -59,9 +59,34 @@ const JobsContextProvider = props => {
       }
       return response.json();
     })
+    .catch(err => setError(err))
+  }
+  const editJob = (job) => {
+    for (let [key, value] of Object.entries(job)){
+      if (value ===''){
+        job[key]=null;
+      }
+    }
+    fetch(`http://localhost:8000/api/jobs/${job.id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(job)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      getJobById(job.id)
+    })
+    .then(job => {
+      getAllJobs();
+    })
+    .catch(err => setError(err))
   }
   return (
-    <JobsContext.Provider value={{ jobs, getAllJobs, singleJob, getJobById,addJob, error }}>
+    <JobsContext.Provider value={{ jobs, editJob, getAllJobs, singleJob, getJobById,addJob, error }}>
       {props.children}
     </JobsContext.Provider>
   );

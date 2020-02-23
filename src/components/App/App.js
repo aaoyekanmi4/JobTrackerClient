@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
-import { JobsContext } from '../../context/JobsContext';
+
 import ContactForm from '../ContactForm/ContactForm';
 import Nav  from '../Nav/Nav';
 import JobDetail from '../JobDetail/JobDetail';

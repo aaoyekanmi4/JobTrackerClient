@@ -6,7 +6,7 @@ import "./JobForm.css";
 const JobForm = (props) => {
   const history = useHistory();
 
-  const { addJob, singleJob} = useContext(JobsContext);
+  const { addJob, singleJob, editJob} = useContext(JobsContext);
   const [jobEntry, setJobEntry] = useState({
     company: "",
     job_role: "",
@@ -26,7 +26,7 @@ const JobForm = (props) => {
   
       setJobEntry(prevState => {return {...prevState, ...singleJob}})
     }
-   
+    // eslint-disable-next-line
   }, [])
 
  
@@ -43,9 +43,15 @@ const JobForm = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
- 
+ if (props.jobId){
+   console.log(jobEntry)
+   editJob(jobEntry)
+ }
+ else {
+  addJob(jobEntry);
+ }
   
-    addJob(jobEntry);
+   
     history.push('/jobs')
   };
 
