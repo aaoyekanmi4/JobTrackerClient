@@ -5,7 +5,7 @@ import * as moment from "moment";
 import "./JobList.css";
 
 const JobList = () => {
-  const { getAllJobs, jobs, error } = useContext(JobsContext);
+  const { getAllJobs, jobs, error, deleteJob } = useContext(JobsContext);
 
  console.log('I rendered');
   useEffect(() => {
@@ -36,6 +36,7 @@ const JobList = () => {
         <Link to={`/job-detail/${job.id}`}>
           <span className="view-details">View Details</span>
         </Link>
+        <button onClick={()=>deleteJob(job.id)}>Delete</button>
       </li>
     ));
   };

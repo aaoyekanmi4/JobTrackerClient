@@ -85,8 +85,21 @@ const JobsContextProvider = props => {
     })
     .catch(err => setError(err))
   }
+  const deleteJob = (id) => {
+    fetch(`http://localhost:8000/api/jobs/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
+      }})
+    .then(response => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    }).catch(err => setError(err))
+  }
   return (
-    <JobsContext.Provider value={{ jobs, editJob, getAllJobs, singleJob, getJobById,addJob, error }}>
+    <JobsContext.Provider value={{ jobs,deleteJob, editJob, getAllJobs, singleJob, getJobById,addJob, error }}>
       {props.children}
     </JobsContext.Provider>
   );
