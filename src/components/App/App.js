@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
-
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ContactForm from '../ContactForm/ContactForm';
 import Nav  from '../Nav/Nav';
 import JobDetail from '../JobDetail/JobDetail';
@@ -26,9 +26,9 @@ function App() {
          render ={({ match }) => <JobDetail jobId ={match.params.job_id}/> }/>
     
 
-      <Route path="/jobs">
+      <PrivateRoute path="/jobs">
       <JobList />
-      </Route>
+      </PrivateRoute>
       <Route exact path="/">
       <Landing />
       </Route>

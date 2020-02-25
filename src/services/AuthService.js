@@ -17,14 +17,14 @@ const AuthService = {
         })
            .then(responseJSON => {
                console.log(responseJSON)
-               TokenService.saveAuthToken('worked')
+               TokenService.saveAuthToken(responseJSON.authToken)
            })
            .catch(res => cb(res.error))
        
     },
     
     registerUser(credentials, cb){
-        fetch('http://localhost:8000/api/auth/login', {
+        fetch('http://localhost:8000/api/users', {
             method:'POST',
             headers: {
              'content-type': 'application/json'
@@ -33,15 +33,16 @@ const AuthService = {
          })
          .then (response => {
              if (!response.ok) {
-                 throw new Error(response.statusText);
-
-             }
-             response.json();
-         })
+                
+                return response.json().then(e =>Promise.reject(e))
+            }
+            return response.json();
+             })
          .then(responseJSON => {
              console.log(responseJSON)
+             TokenService.saveAuthToken(responseJSON.authToken)
          })
-         .catch(err => cb(err))
+         .catch(res => cb(res.error))
     }
 
 }
