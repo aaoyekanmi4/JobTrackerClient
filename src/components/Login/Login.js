@@ -1,10 +1,11 @@
-import React, {useState} from "react";
-import AuthService from '../../services/AuthService';
+import React, {useState, useContext} from "react";
+import { AuthContext } from '../../context/AuthContext';
 
 import { Link, useHistory } from 'react-router-dom';
 import './Login.css'
 
 const Login = () => {
+  const {sendLoginCredentials }= useContext(AuthContext);
   const history = useHistory();
   const [error, setError] = useState(null);
   const [loginInput, setLoginInput] = useState({
@@ -21,7 +22,7 @@ const Login = () => {
   };
  const handleSubmitCredentials = (event) => {
    event.preventDefault();
-   AuthService.sendLoginCredentials(loginInput, setError);
+   sendLoginCredentials(loginInput, setError);
    history.push('/')
  }
   return (

@@ -1,14 +1,10 @@
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
-import TokenService from "../../services/TokenService";
+import React, {useContext} from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from '../../context/AuthContext';
+
 import "./Nav.css";
 const Nav = () => {
-  const history = useHistory();
-  const logout = () => {
-    TokenService.clearAuthToken();
-
-    history.push("/login");
-  };
+ const { loggedIn, logout } = useContext(AuthContext);
   return (
     <nav>
       <ul className="nav-links">
@@ -20,7 +16,7 @@ const Nav = () => {
           <Link to="/">Instructions</Link>
         </li>
         <li className="nav-link">
-          {TokenService.hasAuthToken() ? (
+          {loggedIn ? (
             <button id="logout" onClick={() => logout()}>
               Logout
             </button>
