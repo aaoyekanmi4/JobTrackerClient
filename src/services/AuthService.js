@@ -1,6 +1,7 @@
 import TokenService from './TokenService';
 
 const AuthService = {
+
     sendLoginCredentials (credentials, cb) {
        fetch('http://localhost:8000/api/auth/login', {
            method:'POST',

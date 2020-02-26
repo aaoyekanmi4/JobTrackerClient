@@ -1,7 +1,11 @@
 import React, {useState} from "react";
 import AuthService from '../../services/AuthService';
 
+import { Link, useHistory } from 'react-router-dom';
+import './Login.css'
+
 const Login = () => {
+  const history = useHistory();
   const [error, setError] = useState(null);
   const [loginInput, setLoginInput] = useState({
     user_name:"",
@@ -18,6 +22,7 @@ const Login = () => {
  const handleSubmitCredentials = (event) => {
    event.preventDefault();
    AuthService.sendLoginCredentials(loginInput, setError);
+   history.push('/')
  }
   return (
     <form onSubmit={handleSubmitCredentials}>
@@ -32,6 +37,7 @@ const Login = () => {
       <div className="button-holder">
         <input type="submit" value="Login" />
       </div>
+      <p className="form-question">New User? Sign up for an account <Link to="/sign-up">here</Link>  </p>
     </form>
   );
 };

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import AuthService from '../../services/AuthService';
-import { useHistory }from 'react-router-dom'
+import { useHistory, Link }from 'react-router-dom'
 import './SignUp.css';
 
 const SignUp = () => {
@@ -44,6 +44,7 @@ const SignUp = () => {
         <label htmlFor="password2">Confirm password</label>
         <input type="password" id="password2" name="password2" onChange={handleChange}/>
         <div className="button-holder"><input type="submit" value="Sign Up"/></div>
+        <p class="form-question">Already a user? Login <Link to="/login">here</Link></p>
     </form>
     )
 }
