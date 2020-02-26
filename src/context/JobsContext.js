@@ -101,6 +101,7 @@ const JobsContextProvider = props => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
+        setJobs(prevJobs => prevJobs.filter(job => job.id !== id))
         return response.json();
       })
       .catch(err => setError(err));

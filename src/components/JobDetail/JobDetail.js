@@ -11,6 +11,8 @@ const JobDetail = props => {
  
 
   
+
+  
     //Call the fetch API for to GET job on mount
     useEffect(() => {
       if (!error || !contactsError) {
@@ -44,7 +46,11 @@ const JobDetail = props => {
         <h5>
       Last Contact Date: <span id="contact-last-date">{contact.last_contacted}</span>
         </h5>
-        <div>View Details</div>
+        <Link to={`/edit-contact/${contact.id}`}>
+              <div>Edit</div>
+            </Link>
+        <button onClick={()=>deleteContact(contact.id)}>Delete</button>
+    
       </div>
       )
     })

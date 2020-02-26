@@ -88,9 +88,7 @@ const ContactsContextProvider = props => {
       }
       getContactById(contact.id)
     })
-    .then(contact => {
-      getAllContacts();
-    })
+  
     .catch(err => setContactsError(err))
   }
   const deleteContact = (id) => {
@@ -104,8 +102,10 @@ const ContactsContextProvider = props => {
       if (!response.ok) {
         throw Error(response.statusText);
       }
+      setContacts(prevContacts => prevContacts.filter(contact => contact.id !==id))
       return response.json();
-    }).catch(err => setContactsError(err))
+    })
+    .catch(err => setContactsError(err))
   }
   return (
     <ContactsContext.Provider value={{ contacts,deleteContact, editContact, getAllContacts, singleContact, getContactById,addContact, contactsError }}>

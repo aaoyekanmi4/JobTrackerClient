@@ -43,7 +43,7 @@ const JobList = () => {
     <section className="jobs">
       <h1>Saved Jobs</h1>
       <div id="jobs-list-container">
-        <ul>{jobs.length ? jobListItems() : error.toString()}</ul>
+        <ul>{jobListItems()}</ul>
         <Link to="/add-job">+ Add Job</Link>
       </div>
     </section>

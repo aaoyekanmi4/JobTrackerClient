@@ -43,7 +43,8 @@ function App() {
       </Route>
       <Route path="/edit-job/:job_id"
          render ={({ match }) => <JobForm jobId ={match.params.job_id}/> }/>
-    
+         <Route path="/edit-contact/:contact_id"
+         render ={({ match }) => <ContactForm contactId ={match.params.contact_id}/> }/>
       </Switch>
 
     </div>

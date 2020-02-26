@@ -6,7 +6,7 @@ import './ContactForm.css'
 const ContactForm = (props) => {
   const history = useHistory();
   const {singleJob} = useContext(JobsContext);
-  const { addContact, singleContact, editContact} = useContext(ContactsContext);
+  const { addContact, contacts, editContact} = useContext(ContactsContext);
   const [contactEntry, setContactEntry] = useState({ 
      name:'',
      role:'',
@@ -18,12 +18,11 @@ const ContactForm = (props) => {
   })
  //set value of contactEntry if there is an id for a contactto edit in props 
  useEffect(()=> {
-   
-  const id = Number(props.contactId);
-  if(singleContact.id===id){
-
-    setContactEntry(prevState => {return {...prevState, ...singleContact}})
-  }
+   if(props.contactId){
+    const contactToUpdate = contacts.find(contact => contact.id == props.contactId )
+    
+    setContactEntry(prevState => {return {...prevState, ...contactToUpdate}})
+   }
   // eslint-disable-next-line
 }, [])
   const handleChange = event => {
@@ -48,7 +47,7 @@ const ContactForm = (props) => {
  }
   
    
-    history.push('/jobs')
+    history.push(`/job-detail/${singleJob.id}`)
   };
   return (
 
