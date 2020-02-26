@@ -18,6 +18,7 @@ const Landing = () => {
         <div className="step">
         <h2>Step 3: </h2>
            Set follow up dates to get back to contacts and check on applications
+           (Feature in Progress)
         </div>
     </section>
        <div className="button-holder"><Link to="/jobs" id="get-started">Get Started!</Link></div> 
