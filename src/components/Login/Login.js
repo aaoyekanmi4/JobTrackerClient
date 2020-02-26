@@ -5,14 +5,17 @@ import { Link, useHistory } from 'react-router-dom';
 import './Login.css'
 
 const Login = () => {
-  const {sendLoginCredentials }= useContext(AuthContext);
+  const {sendLoginCredentials, error, setError }= useContext(AuthContext);
   const history = useHistory();
-  const [error, setError] = useState(null);
+
   const [loginInput, setLoginInput] = useState({
     user_name:"",
     password: ""
   })
   const handleChange = event => {
+    //clear error on input 
+    setError('');
+    
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -22,13 +25,13 @@ const Login = () => {
   };
  const handleSubmitCredentials = (event) => {
    event.preventDefault();
-   sendLoginCredentials(loginInput, setError);
-   history.push('/')
+   sendLoginCredentials(loginInput);
+  
  }
   return (
     <form onSubmit={handleSubmitCredentials}>
       <h1>Login</h1>
-      {error}
+      {error && <p className="error">{error}</p>}
       <label htmlFor="username">username</label>
       <input type="text" value={loginInput.user_name}id="username" name="user_name" onChange ={handleChange}/>
 

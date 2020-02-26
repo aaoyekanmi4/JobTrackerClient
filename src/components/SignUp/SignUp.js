@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
-import AuthService from '../../services/AuthService';
-import { useHistory, Link }from 'react-router-dom'
+import React, {useState, useContext} from 'react';
+import { AuthContext } from '../../context/AuthContext';
+import { Link }from 'react-router-dom'
 import './SignUp.css';
 
 const SignUp = () => {
-  const history = useHistory();
+  const { registerUser, error} = useContext(AuthContext);
   const [userInput, setUserInput] = useState({
     "user_name":"",
     "email":"",
     "password":"",
     "password2":""
   })
-  const [error, setError] = useState('');
+
 
   const handleChange = event => {
     const target = event.target;
@@ -23,17 +23,13 @@ const SignUp = () => {
   };
   const handleRegisterUser = (event) => {
     event.preventDefault();
-    AuthService.registerUser({
-      user_name:userInput.user_name,
-      email:userInput.email,
-      password:userInput.password
-    }, setError)
-    history.push('/jobs')
+   registerUser(userInput)
+
   }
 
     return (
       <form onSubmit = {handleRegisterUser}>
-        {error}
+        {error && <p className="error">{error}</p>}
         <h1>Sign Up</h1>
         <label htmlFor="username">Name</label>
         <input type="text" id="username" name="user_name" onChange={handleChange}/>

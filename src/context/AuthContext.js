@@ -7,7 +7,8 @@ const AuthContext = React.createContext();
 const AuthContextProvider = props => {
     const history = useHistory();
     const [loggedIn, setLoggedIn] = useState(false);
-const sendLoginCredentials = (credentials, cb) => {
+    const [error, setError] = useState('');
+const sendLoginCredentials = (credentials) => {
         fetch('http://localhost:8000/api/auth/login', {
             method:'POST',
             headers: {
@@ -24,13 +25,15 @@ const sendLoginCredentials = (credentials, cb) => {
             .then(responseJSON => {
                 console.log(responseJSON)
                 TokenService.saveAuthToken(responseJSON.authToken)
+                
                 setLoggedIn(true);
+                history.push('/')
             })
-            .catch(res => cb(res.error))
+            .catch(res => setError(res.error))
         
      }
      
-     const registerUser = (credentials, cb) =>{
+     const registerUser = (credentials) =>{
          fetch('http://localhost:8000/api/users', {
              method:'POST',
              headers: {
@@ -49,8 +52,9 @@ const sendLoginCredentials = (credentials, cb) => {
               console.log(responseJSON)
               setLoggedIn(true);
               TokenService.saveAuthToken(responseJSON.authToken)
+              history.push('/')
           })
-          .catch(res => cb(res.error))
+          .catch(res => setError(res.error))
      }
     
      const logout = () => {
@@ -59,7 +63,7 @@ const sendLoginCredentials = (credentials, cb) => {
        history.push("/login");
      };
     return (
-        <AuthContext.Provider value={{ registerUser, sendLoginCredentials, loggedIn, logout}}>
+        <AuthContext.Provider value={{ registerUser, sendLoginCredentials, loggedIn, logout, error, setError}}>
               {props.children}
      </AuthContext.Provider>
  
