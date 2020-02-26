@@ -5,10 +5,10 @@ const ContactsContext = React.createContext();
 const ContactsContextProvider = props => {
   const [contacts, setContacts] = useState([]);
   const [singleContact, setSingleContact] = useState('');
-  const [error, setError] = useState("");
+  const [contactsError, setContactsError] = useState("");
 
-  const getAllContacts = () => {
-    fetch("http://localhost:8000/api/contacts", {
+  const getAllContacts = (jobId) => {
+    fetch(`http://localhost:8000/api/contacts/job/${jobId}`, {
       headers:{'authorization': `bearer ${TokenService.getAuthToken()}`}
     } 
     )
@@ -19,7 +19,7 @@ const ContactsContextProvider = props => {
         return response.json();
       })
       .then(responseJSON => setContacts(responseJSON))
-      .catch(err => setError(err));
+      .catch(err => setContactsError(err));
   };
   const getContactById=(id)=> {
     fetch(`http://localhost:8000/api/contacts/${id}`, {
@@ -41,10 +41,10 @@ const ContactsContextProvider = props => {
           }
           setSingleContact(contact)
         })
-      .catch(err => setError(err))
+      .catch(err => setContactsError(err))
   }
   
-  const addContact =(contact)=> {
+  const addContact =(contact, jobId)=> {
       
     for (let [key, value] of Object.entries(contact)){
       if (value ===''){
@@ -52,7 +52,7 @@ const ContactsContextProvider = props => {
       }
     }
     console.log(contact);
-    fetch('http://localhost:8000/api/contacts/', {
+    fetch(`http://localhost:8000/api/contacts/job/${jobId}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -66,7 +66,7 @@ const ContactsContextProvider = props => {
       }
       return response.json();
     })
-    .catch(err => setError(err))
+    .catch(err => setContactsError(err))
   }
   const editContact = (contact) => {
     for (let [key, value] of Object.entries(contact)){
@@ -91,7 +91,7 @@ const ContactsContextProvider = props => {
     .then(contact => {
       getAllContacts();
     })
-    .catch(err => setError(err))
+    .catch(err => setContactsError(err))
   }
   const deleteContact = (id) => {
     fetch(`http://localhost:8000/api/contacts/${id}`, {
@@ -105,11 +105,12 @@ const ContactsContextProvider = props => {
         throw Error(response.statusText);
       }
       return response.json();
-    }).catch(err => setError(err))
+    }).catch(err => setContactsError(err))
   }
   return (
-    <ContactsContext.Provider value={{ contacts,deleteContact, editContact, getAllContacts, singleContact, getContactById,addContact, error }}>
+    <ContactsContext.Provider value={{ contacts,deleteContact, editContact, getAllContacts, singleContact, getContactById,addContact, contactsError }}>
       {props.children}
     </ContactsContext.Provider>
   );
 };
+export { ContactsContextProvider, ContactsContext};

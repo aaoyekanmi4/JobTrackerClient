@@ -7,7 +7,6 @@ import "./JobList.css";
 const JobList = () => {
   const { getAllJobs, jobs, error, deleteJob } = useContext(JobsContext);
 
- console.log('I rendered');
   useEffect(() => {
     if (!error) {
       getAllJobs();

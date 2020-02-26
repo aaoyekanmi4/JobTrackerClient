@@ -18,9 +18,10 @@ const JobForm = (props) => {
     interview: '',
     offer: ''
   });
- 
+  
+  //set value of jobEntry if there is an id for a job to edit in props 
   useEffect(()=> {
-    console.log(typeof singleJob.id);
+   
     const id = Number(props.jobId);
     if(singleJob.id===id){
   
@@ -43,8 +44,9 @@ const JobForm = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    //edit if there is an id, just add if not
  if (props.jobId){
-   console.log(jobEntry)
+  
    editJob(jobEntry)
  }
  else {

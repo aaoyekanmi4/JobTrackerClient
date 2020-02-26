@@ -2,19 +2,52 @@ import React, { useContext,useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as moment from "moment";
 import { JobsContext } from "../../context/JobsContext";
+import { ContactsContext} from '../../context/ContactsContext';
 
 import "./JobDetail.css";
 const JobDetail = props => {
   const { singleJob,getJobById, error } = useContext(JobsContext);
+  const { contacts, getAllContacts, contactsError, deleteContact} = useContext(ContactsContext);
  
+
+  
     //Call the fetch API for to GET job on mount
     useEffect(() => {
-      if (!error) {
+      if (!error || !contactsError) {
         console.log(props);
         getJobById(props.jobId)
+        getAllContacts(props.jobId);
       }
       // eslint-disable-next-line
     }, []);
+
+    const contactsList = contacts.map(contact => {
+      return (
+        <div class="contact">
+        <h5>
+          Name:
+          <span id="contact-name">{contact.name}</span>
+        </h5>
+        <h5>
+          Role:
+          <span id="contact-role">{contact.role}</span>
+        </h5>
+        <h5>
+      contactURL: <span id="contact-url">{contact.contact_url}</span>
+        </h5>
+        <h5>
+      email: <span id="contact-email">{contact.email}</span>
+        </h5>
+        <h5>
+      phone: <span id="contact-phone">{contact.phone}</span>
+        </h5>
+        <h5>
+      Last Contact Date: <span id="contact-last-date">{contact.last_contacted}</span>
+        </h5>
+        <div>View Details</div>
+      </div>
+      )
+    })
   return (
     <main>
       <h1>Job Detail</h1>
@@ -52,26 +85,7 @@ const JobDetail = props => {
         </div>
         <h2>Contacts</h2>
         <div id="contacts">
-          <div class="contact">
-            <h5>
-              {" "}
-              <span id="contact-name">Sarah Smith</span>
-            </h5>
-            <h5>
-              {" "}
-              <span id="contact-role">Tech Recruiter</span>
-            </h5>
-            <h5>
-              email: <span id="contact-email">sarahs@sarahs.com</span>
-            </h5>
-            <h5>
-              phone: <span id="contact-phone">512-555-5000</span>
-            </h5>
-            <h5>
-              Last Contact Date: <span id="contact-last-date">2/11/2020</span>
-            </h5>
-            <div>View Details</div>
-          </div>
+          {contactsList}
           <Link to="/add-contact">
             <span>+Add new contact</span>
           </Link>
