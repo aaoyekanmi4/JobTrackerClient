@@ -54,6 +54,7 @@ const JobDetail = props => {
       </div>
       )
     })
+    
   return (
     <main>
       <h1>Job Detail</h1>
@@ -75,7 +76,7 @@ const JobDetail = props => {
           </div>
           <div id="job-status">
             <h3>
-              Applied: <span id="application-status">{moment(singleJob.applied).format("MMM DD, YYYY")}</span>
+              Applied: <span id="application-status">{singleJob.applied ? moment(singleJob.applied).format("MMM DD, YYYY"):''}</span>
             </h3>
 
             <h4>
