@@ -74,13 +74,14 @@ h1 {
     }
     span{
         margin:0 2px;
+        width:fit-content;
     }
     ul {
         margin:0 auto;
         padding:0;
     }
     form {
-        width:100%;
+        max-width:100%;
     }
     .step {
         margin:20px 0;

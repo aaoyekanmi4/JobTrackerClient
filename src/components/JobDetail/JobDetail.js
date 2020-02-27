@@ -46,11 +46,12 @@ const JobDetail = props => {
         <h5>
       Last Contact Date: <span id="contact-last-date">{contact.last_contacted}</span>
         </h5>
+        <div>
         <Link to={`/edit-contact/${contact.id}`}>
-              <div>Edit</div>
+              Edit
             </Link>
         <button onClick={()=>deleteContact(contact.id)}>Delete</button>
-    
+        </div>
       </div>
       )
     })
@@ -92,10 +93,11 @@ const JobDetail = props => {
         </div>
         <h2>Contacts</h2>
         <div id="contacts">
-          {contactsList}
+         
           <Link to="/add-contact">
             <span>+Add new contact</span>
           </Link>
+          {contactsList}
         </div>
       </div>
     </main>

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Redirect} from 'react-router-dom';
-import TokenService from '../../services/TokenService'
+import { AuthContext } from '../../context/AuthContext';
 
 
 const PrivateRoute = (props) => {
+    const {loggedIn} = useContext(AuthContext);
+
     return (
         <div>
-    {TokenService.hasAuthToken() ? props.children :<Redirect to="/login" />}
+    {loggedIn? props.children :<Redirect to="/login" />}
         </div>
       
     )

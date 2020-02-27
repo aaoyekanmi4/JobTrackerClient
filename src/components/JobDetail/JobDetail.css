@@ -45,9 +45,7 @@ h4 {
   .contact {
     width: 100%;
   }
-  span {
-    margin: 0 2px;
-  }
+
   ul {
     margin: 0 auto;
     padding: 0;
@@ -60,6 +58,9 @@ h4 {
   }
   .job-and-status {
     flex-direction: column;
+  }
+  #contacts {
+    flex-direction:column;
   }
   #job-details,
   #job-status {

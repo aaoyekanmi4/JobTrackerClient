@@ -1,6 +1,6 @@
 /* Forms */
 form {
-    width:500px;
+    max-width:500px;
     margin:10% auto;
 
 }
@@ -33,9 +33,7 @@ input[type="submit"] {
     .contact {
         width:100%;
     }
-    span{
-        margin:0 2px;
-    }
+
     ul {
         margin:0 auto;
         padding:0;

@@ -36,7 +36,7 @@ const sendLoginCredentials = (credentials) => {
      }
      
      const registerUser = (credentials) =>{
-         fetch(`${API_BASE_URL}/api/auth/login`, {
+         fetch(`${API_BASE_URL}/api/users`, {
              method:'POST',
              headers: {
               'content-type': 'application/json'
