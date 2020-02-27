@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import TokenService from '../services/TokenService';
 import {useHistory } from 'react-router-dom';
+import {API_BASE_URL} from '../config';
+
 const AuthContext = React.createContext();
 
 
@@ -9,7 +11,7 @@ const AuthContextProvider = props => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [error, setError] = useState('');
 const sendLoginCredentials = (credentials) => {
-        fetch('http://localhost:8000/api/auth/login', {
+        fetch(`${API_BASE_URL}/api/auth/login`, {
             method:'POST',
             headers: {
              'content-type': 'application/json'
@@ -34,7 +36,7 @@ const sendLoginCredentials = (credentials) => {
      }
      
      const registerUser = (credentials) =>{
-         fetch('http://localhost:8000/api/users', {
+         fetch(`${API_BASE_URL}/api/auth/login`, {
              method:'POST',
              headers: {
               'content-type': 'application/json'
