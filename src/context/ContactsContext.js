@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import TokenService from '../services/TokenService';
+import { API_BASE_URL} from '../config';
+
 const ContactsContext = React.createContext();
 
 const ContactsContextProvider = props => {
@@ -8,7 +10,7 @@ const ContactsContextProvider = props => {
   const [contactsError, setContactsError] = useState("");
 
   const getAllContacts = (jobId) => {
-    fetch(`http://localhost:8000/api/contacts/job/${jobId}`, {
+    fetch(`${API_BASE_URL}/api/contacts/job/${jobId}`, {
       headers:{'authorization': `bearer ${TokenService.getAuthToken()}`}
     } 
     )
@@ -22,7 +24,7 @@ const ContactsContextProvider = props => {
       .catch(err => setContactsError(err));
   };
   const getContactById=(id)=> {
-    fetch(`http://localhost:8000/api/contacts/${id}`, {
+    fetch(`${API_BASE_URL}//api/contacts/${id}`, {
         headers:{'authorization': `bearer ${TokenService.getAuthToken()}`}
       } 
       )
@@ -52,7 +54,7 @@ const ContactsContextProvider = props => {
       }
     }
     console.log(contact);
-    fetch(`http://localhost:8000/api/contacts/job/${jobId}`, {
+    fetch(`${API_BASE_URL}/api/contacts/job/${jobId}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -74,7 +76,7 @@ const ContactsContextProvider = props => {
         contact[key]=null;
       }
     }
-    fetch(`http://localhost:8000/api/contacts/${contact.id}`, {
+    fetch(`${API_BASE_URL}/api/contacts/${contact.id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
@@ -92,7 +94,7 @@ const ContactsContextProvider = props => {
     .catch(err => setContactsError(err))
   }
   const deleteContact = (id) => {
-    fetch(`http://localhost:8000/api/contacts/${id}`, {
+    fetch(`${API_BASE_URL}/api/contacts/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json', 

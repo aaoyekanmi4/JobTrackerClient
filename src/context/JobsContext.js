@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TokenService from "../services/TokenService";
+import {API_BASE_URL} from '../config';
 const JobsContext = React.createContext();
 
 const JobsContextProvider = props => {
@@ -8,7 +9,7 @@ const JobsContextProvider = props => {
   const [error, setError] = useState("");
 
   const getAllJobs = () => {
-    fetch("http://localhost:8000/api/jobs", {
+    fetch(`${API_BASE_URL}/api/jobs`, {
       headers: { authorization: `bearer ${TokenService.getAuthToken()}` }
     })
       .then(response => {
@@ -21,7 +22,7 @@ const JobsContextProvider = props => {
       .catch(err => setError(err));
   };
   const getJobById = id => {
-    fetch(`http://localhost:8000/api/jobs/${id}`, {
+    fetch(`${API_BASE_URL}/api/jobs/${id}`, {
       headers: { authorization: `bearer ${TokenService.getAuthToken()}` }
     })
       .then(response => {
@@ -48,7 +49,7 @@ const JobsContextProvider = props => {
       }
     }
     console.log(job);
-    fetch("http://localhost:8000/api/jobs/", {
+    fetch(`${API_BASE_URL}/api/jobs/`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -70,7 +71,7 @@ const JobsContextProvider = props => {
         job[key] = null;
       }
     }
-    fetch(`http://localhost:8000/api/jobs/${job.id}`, {
+    fetch(`${API_BASE_URL}/api/jobs/${job.id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -90,7 +91,7 @@ const JobsContextProvider = props => {
       .catch(err => setError(err));
   };
   const deleteJob = id => {
-    fetch(`http://localhost:8000/api/jobs/${id}`, {
+    fetch(`${API_BASE_URL}/api/jobs/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
