@@ -22,3 +22,6 @@ input[type="submit"] {
     width:fit-content;
 
 }
+.error {
+    color:red;
+}

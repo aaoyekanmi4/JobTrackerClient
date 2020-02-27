@@ -1,12 +1,12 @@
 import React, {useState, useContext} from "react";
 import { AuthContext } from '../../context/AuthContext';
 
-import { Link, useHistory } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import './Login.css'
 
 const Login = () => {
   const {sendLoginCredentials, error, setError }= useContext(AuthContext);
-  const history = useHistory();
+
 
   const [loginInput, setLoginInput] = useState({
     user_name:"",
@@ -30,6 +30,7 @@ const Login = () => {
  }
   return (
     <form onSubmit={handleSubmitCredentials}>
+    
       <h1>Login</h1>
       {error && <p className="error">{error}</p>}
       <label htmlFor="username">username</label>

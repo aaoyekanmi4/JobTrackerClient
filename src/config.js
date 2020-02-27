@@ -1,4 +1,4 @@
 module.exports = {
-    API_BASE_URL: "https://blooming-reef-88357.herokuapp.com" ||
-      "http://localhost:8000/"
+  //"https://blooming-reef-88357.herokuapp.com" ||
+    API_BASE_URL: "http://localhost:8000"
   };

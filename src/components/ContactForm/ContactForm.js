@@ -6,7 +6,7 @@ import './ContactForm.css'
 const ContactForm = (props) => {
   const history = useHistory();
   const {singleJob} = useContext(JobsContext);
-  const { addContact, contacts, editContact} = useContext(ContactsContext);
+  const { addContact, contacts, editContact, contactError} = useContext(ContactsContext);
   const [contactEntry, setContactEntry] = useState({ 
      name:'',
      role:'',
@@ -47,16 +47,17 @@ const ContactForm = (props) => {
  }
   
    
-    history.push(`/job-detail/${singleJob.id}`)
   };
   return (
 
     <form onSubmit={handleSubmit}>
+      {contactError && <p className="error">{contactError}</p>}
+      <p>Required *</p>
       <h1>Add/Edit Contact at {singleJob.company}</h1>
     
-      <label htmlFor="name">Name</label>
+      <label htmlFor="name">Name *</label>
       <input type="text" id="name" name="name"value={contactEntry.name} onChange={handleChange} />
-      <label htmlFor="role">Role</label>
+      <label htmlFor="role">Role *</label>
       <input type="text" id="role" name="role"  value={contactEntry.role} onChange={handleChange} />
       <label htmlFor="email">Email</label>
       <input type="email" id="email" name="email"    value={contactEntry.email}onChange={handleChange} />

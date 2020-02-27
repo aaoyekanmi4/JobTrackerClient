@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import TokenService from "../services/TokenService";
 import {API_BASE_URL} from '../config';
+import { useHistory } from 'react-router-dom';
 const JobsContext = React.createContext();
 
 const JobsContextProvider = props => {
+  const history = useHistory();
   const [jobs, setJobs] = useState([]);
   const [singleJob, setSingleJob] = useState("");
   const [error, setError] = useState("");
@@ -14,20 +16,21 @@ const JobsContextProvider = props => {
     })
       .then(response => {
         if (!response.ok) {
-          throw Error(response.statusText);
+          return response.json().then(e =>Promise.reject(e))
         }
         return response.json();
       })
       .then(responseJSON => setJobs(responseJSON))
-      .catch(err => setError(err));
+      .catch(res=> setError(res.error));
   };
+  
   const getJobById = id => {
     fetch(`${API_BASE_URL}/api/jobs/${id}`, {
       headers: { authorization: `bearer ${TokenService.getAuthToken()}` }
     })
       .then(response => {
         if (!response.ok) {
-          throw Error(response.statusText);
+          return response.json().then(e =>Promise.reject(e))
         }
         return response.json();
       })
@@ -39,7 +42,7 @@ const JobsContextProvider = props => {
         }
         setSingleJob(job);
       })
-      .catch(err => setError(err));
+      .catch(res => setError(res.error));
   };
 
   const addJob = job => {
@@ -59,11 +62,16 @@ const JobsContextProvider = props => {
     })
       .then(response => {
         if (!response.ok) {
-          throw new Error(response.statusText);
+          return response.json().then(e =>Promise.reject(e))
         }
+        history.push('/jobs')
+        setJobs(prevJobs => [...prevJobs, job])
         return response.json();
       })
-      .catch(err => setError(err));
+      .catch(res => {
+        console.log(res)
+        setError(res.error)
+      });
   };
   const editJob = job => {
     for (let [key, value] of Object.entries(job)) {
@@ -81,14 +89,15 @@ const JobsContextProvider = props => {
     })
       .then(response => {
         if (!response.ok) {
-          throw Error(response.statusText);
+          return response.json().then(e =>Promise.reject(e))
         }
         getJobById(job.id);
       })
       .then(job => {
+        history.push('/jobs')
         getAllJobs();
       })
-      .catch(err => setError(err));
+      .catch(res => setError(res.error));
   };
   const deleteJob = id => {
     fetch(`${API_BASE_URL}/api/jobs/${id}`, {
@@ -100,12 +109,12 @@ const JobsContextProvider = props => {
     })
       .then(response => {
         if (!response.ok) {
-          throw Error(response.statusText);
+          return response.json().then(e =>Promise.reject(e))
         }
         setJobs(prevJobs => prevJobs.filter(job => job.id !== id))
         return response.json();
       })
-      .catch(err => setError(err));
+      .catch(res => setError(res.error));
   };
   return (
     <JobsContext.Provider
@@ -117,7 +126,8 @@ const JobsContextProvider = props => {
         singleJob,
         getJobById,
         addJob,
-        error
+        error, 
+        setError
       }}
     >
       {props.children}

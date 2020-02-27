@@ -1,12 +1,12 @@
 import React, { useState,useContext, useEffect} from "react";
 import {JobsContext } from '../../context/JobsContext';
-import { useHistory }from 'react-router-dom'
+
 import "./JobForm.css";
 
 const JobForm = (props) => {
-  const history = useHistory();
+ 
 
-  const { addJob, singleJob, editJob} = useContext(JobsContext);
+  const { addJob, singleJob, editJob, error, setError } = useContext(JobsContext);
   const [jobEntry, setJobEntry] = useState({
     company: "",
     job_role: "",
@@ -37,6 +37,7 @@ const JobForm = (props) => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
+    setError(''); 
     setJobEntry(prevState =>{
     return {...prevState, [name]:value}
     });
@@ -45,24 +46,27 @@ const JobForm = (props) => {
   const handleSubmit = event => {
     event.preventDefault();
     //edit if there is an id, just add if not
- if (props.jobId){
+  
+ if (props.jobId ){
   
    editJob(jobEntry)
  }
  else {
   addJob(jobEntry);
  }
+
   
-   
-    history.push('/jobs')
+
   };
 
   
   return (
     <form onSubmit={handleSubmit}>
+        <p>* Required</p>
+  {error && <p className="error">{error}</p>}
       <div id="job-overview">
         <h1>Add/Edit Job</h1>
-        <label htmlFor="company"> Company Name</label>
+        <label htmlFor="company"> Company Name *</label>
         <input
           type="text"
           id="company-form"
@@ -70,7 +74,7 @@ const JobForm = (props) => {
           value={jobEntry.company}
           onChange={handleChange}
         />
-        <label htmlFor="role">Role</label>
+        <label htmlFor="role">Role *</label>
         <input
           type="text"
           id="role"
@@ -78,7 +82,7 @@ const JobForm = (props) => {
           value={jobEntry.job_role}
           onChange={handleChange}
         />
-        <label htmlFor="location">Location</label>
+        <label htmlFor="location">Location *</label>
         <input
           type="text"
           id="location"

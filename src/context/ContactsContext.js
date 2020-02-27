@@ -16,12 +16,12 @@ const ContactsContextProvider = props => {
     )
       .then(response => {
         if (!response.ok) {
-          throw Error(response.statusText);
+          return response.json().then(e =>Promise.reject(e))
         }
         return response.json();
       })
       .then(responseJSON => setContacts(responseJSON))
-      .catch(err => setContactsError(err));
+      .catch(res => setContactsError(res.error));
   };
   const getContactById=(id)=> {
     fetch(`${API_BASE_URL}//api/contacts/${id}`, {
@@ -30,7 +30,7 @@ const ContactsContextProvider = props => {
       )
       .then(response => {
         if (!response.ok) {
-          throw Error(response.statusText);
+          return response.json().then(e =>Promise.reject(e))
         }
         return response.json();
       })
@@ -43,7 +43,7 @@ const ContactsContextProvider = props => {
           }
           setSingleContact(contact)
         })
-      .catch(err => setContactsError(err))
+        .catch(res => setContactsError(res.error))
   }
   
   const addContact =(contact, jobId)=> {
@@ -64,11 +64,11 @@ const ContactsContextProvider = props => {
     })
     .then(response => {
       if (!response.ok) {
-        throw new Error(response.statusText);
+        return response.json().then(e =>Promise.reject(e))
       }
       return response.json();
     })
-    .catch(err => setContactsError(err))
+    .catch(res => setContactsError(res.error))
   }
   const editContact = (contact) => {
     for (let [key, value] of Object.entries(contact)){
@@ -86,12 +86,12 @@ const ContactsContextProvider = props => {
     })
     .then(response => {
       if (!response.ok) {
-        throw Error(response.statusText);
+        return response.json().then(e =>Promise.reject(e))
       }
       getContactById(contact.id)
     })
   
-    .catch(err => setContactsError(err))
+    .catch(res => setContactsError(res.error))
   }
   const deleteContact = (id) => {
     fetch(`${API_BASE_URL}/api/contacts/${id}`, {
@@ -102,12 +102,12 @@ const ContactsContextProvider = props => {
       }})
     .then(response => {
       if (!response.ok) {
-        throw Error(response.statusText);
+        return response.json().then(e =>Promise.reject(e))
       }
       setContacts(prevContacts => prevContacts.filter(contact => contact.id !==id))
       return response.json();
     })
-    .catch(err => setContactsError(err))
+    .catch(res => setContactsError(res.error))
   }
   return (
     <ContactsContext.Provider value={{ contacts,deleteContact, editContact, getAllContacts, singleContact, getContactById,addContact, contactsError }}>
