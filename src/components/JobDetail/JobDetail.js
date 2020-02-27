@@ -23,9 +23,9 @@ const JobDetail = props => {
       // eslint-disable-next-line
     }, []);
 
-    const contactsList = contacts.map(contact => {
+    const contactsList = contacts.map((contact, index) => {
       return (
-        <div class="contact">
+        <div class="contact" key={index}>
         <h5>
           Name:
           <span id="contact-name">{contact.name}</span>
