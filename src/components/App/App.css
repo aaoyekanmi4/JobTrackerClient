@@ -20,6 +20,18 @@ form {
 
     
 }
+.edit-contact-button {
+    color:#34ce34;
+    padding:10px;
+    font-size:20px;
+    
+}
+.delete-contact-button {
+    color:red;
+    background:transparent;
+    border:none;
+    font-size:20px;
+}
 .form-submit-button {
     width:200px;
 }
@@ -64,6 +76,9 @@ input[type="submit"] {
       width:100%;
       
   }
+  .button-holder {
+      margin:5% auto;
+      } 
   li {
       width:100%;
   }

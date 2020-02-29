@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import TokenService from '../services/TokenService';
 import { API_BASE_URL} from '../config';
+import { useHistory } from 'react-router-dom';
 
 const ContactsContext = React.createContext();
 
 const ContactsContextProvider = props => {
+  const history = useHistory();
   const [contacts, setContacts] = useState([]);
   const [singleContact, setSingleContact] = useState('');
   const [contactsError, setContactsError] = useState("");
@@ -66,6 +68,7 @@ const ContactsContextProvider = props => {
       if (!response.ok) {
         return response.json().then(e =>Promise.reject(e))
       }
+      history.push(`/job-detail/${jobId}`)
       return response.json();
     })
     .catch(res => setContactsError(res.error))

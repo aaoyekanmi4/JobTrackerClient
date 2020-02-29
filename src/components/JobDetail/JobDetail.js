@@ -25,32 +25,34 @@ const JobDetail = props => {
 
     const contactsList = contacts.map((contact, index) => {
       return (
-        <div class="contact" key={index}>
-        <h5>
-          Name:
-          <span id="contact-name">{contact.name}</span>
-        </h5>
-        <h5>
-          Role:
-          <span id="contact-role">{contact.role}</span>
-        </h5>
-        <h5>
-      contactURL: <span id="contact-url">{contact.contact_url}</span>
-        </h5>
-        <h5>
-      email: <span id="contact-email">{contact.email}</span>
-        </h5>
-        <h5>
-      phone: <span id="contact-phone">{contact.phone}</span>
-        </h5>
-        <h5>
-      Last Contact Date: <span id="contact-last-date">{contact.last_contacted}</span>
-        </h5>
-        <div>
-        <Link to={`/edit-contact/${contact.id}`}>
-              Edit
+        <div className="contact" key={index}>
+            <div className='edit-delete-contact'>
+        <Link className='edit-contact-button' to={`/edit-contact/${contact.id}`}>
+        <i class="fas fa-edit"></i> 
             </Link>
-        <button onClick={()=>deleteContact(contact.id)}>Delete</button>
+        <button className='delete-contact-button' onClick={()=>deleteContact(contact.id)}><i class="fas fa-trash"></i></button>
+        </div>
+        <div className="contact-content">
+        <h5>
+          <span className="contact-name">{contact.name}</span>
+        </h5>
+        <h5>
+     
+          <span className="contact-role">{contact.role}</span>
+        </h5>
+        {contact.contact_url? 
+        <h5>
+      Url: <span id="contact-url">{contact.contact_url}</span>
+        </h5>:''}
+        <h5>
+ Email: <span id="contact-email">{contact.email}</span>
+        </h5>
+        <h5>
+      Phone: <span id="contact-phone">{contact.phone}</span>
+        </h5>
+        <h5>
+      Last Contacted: <span id="contact-last-date">{moment(singleJob.date_created).format("MMM DD, YYYY")}</span>
+        </h5>
         </div>
       </div>
       )
@@ -94,11 +96,12 @@ const JobDetail = props => {
           </div>
         </div>
         <h2 id="contacts-title">Contacts</h2>
+        <Link id="add-contact-button" to="/add-contact">
+             +Add new contact
+          </Link>
         <div id="contacts">
          
-          <Link to="/add-contact">
-            <span>+Add new contact</span>
-          </Link>
+        
           {contactsList}
         </div>
       </div>
