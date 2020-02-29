@@ -1,7 +1,31 @@
 /* Job List */
 @import url('https://fonts.googleapis.com/css?family=Hind+Vadodara:700&display=swap');
 
+#add-user {
+    padding-top:10px;
+    font-size:20px;
+    color:royalblue;
+    flex:1;
 
+}
+span {
+    width:25%;
+}
+#trash-icon {
+    padding-top:10px;
+    color:red;
+    background:white;
+    border:none;
+    flex-basis:auto;
+    
+}
+.delete-icon-text {
+    margin-top:5px;
+}
+#add-text {
+    margin-top:0;
+    font-size:14px;
+}
 ul {
     list-style-type:none;
     text-align:center;
@@ -31,7 +55,8 @@ ul {
 span {
     display:inline-block;
     margin:0 20px;
-    width:200px;
+    width:fit-content;
+ 
   
 }
 
@@ -49,7 +74,7 @@ li {
     margin:30px 0px;
     padding:10px 0px;
     border-bottom:1px solid royalblue;
-  
+    height:80px;
 }
 
 h1 {
@@ -74,7 +99,7 @@ h1 {
     }
     span{
         margin:0 2px;
-        width:fit-content;
+        width:25%;
     }
     ul {
         margin:0 auto;
@@ -93,5 +118,9 @@ h1 {
     #job-details, #job-status {
         flex:100%;
     }
+    .applied {
+        display:none;
+    }
+    
 
 }

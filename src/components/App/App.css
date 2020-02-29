@@ -1,7 +1,9 @@
 .error {
     color:red;
 }
-
+* {
+    box-sizing:border-box;
+}
 
 /* Phone size screens*/
 @media screen and (max-width:600px) {

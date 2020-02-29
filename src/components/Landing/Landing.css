@@ -9,6 +9,9 @@ h1 {
     flex-wrap:wrap;
     justify-content:space-evenly;
 }
+img {
+    width:100%;
+}
 .step {
     border: 1px solid royalblue;
     color:royalblue;

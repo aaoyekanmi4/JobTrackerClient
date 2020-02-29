@@ -32,10 +32,12 @@ const JobList = () => {
         >
           {job.applied ? "Applied" : "Not Applied"}
         </span>
+    
+        
+        <button id="trash-icon" onClick={()=>deleteJob(job.id)}><span><i class="fas fa-trash"></i><p className="delete-icon-text">Delete</p></span></button>
         <Link to={`/job-detail/${job.id}`}>
-          <span className="view-details">View Details</span>
+          <span className="view-details"><i class="fas fa-chevron-right"></i></span>
         </Link>
-        <button onClick={()=>deleteJob(job.id)}>Delete</button>
       </li>
     ));
   };

@@ -6,11 +6,13 @@
 }
 #job-details {
   flex: 60%;
-  background-color: gray;
+  border:1px solid royalblue;
+  
 }
 #job-status {
   flex: 40%;
-  background-color: lightgray;
+  border: 1px solid royalblue;
+ 
 }
 #contacts {
   border: 1px solid black;

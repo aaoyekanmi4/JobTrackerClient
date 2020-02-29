@@ -1,24 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Landing.css';
+import viewedJobs from '../../img/viewed_jobs.png';
+import contacts from '../../img/contacts.png';
+import calendar from '../../img/calendar.png';
 const Landing = () => {
     return (
         <main>
-           <h1>Job Tracker</h1>
+           <h1 id="main-title">Job Tracker</h1>
         <section id="steps">
     
         <div className="step">
         <h2>Step 1: </h2>
-           Fill out details of jobs you are interested in.
+      <img src={viewedJobs} alt="graphic design of man standing by lists with checkmarks"/>
+      <p>Find jobs you are interested in and add their details to the site</p>
         </div>
         <div className="step">
         <h2>Step 2: </h2>
-           Add contacts associated with company
+          <img src={contacts} alt="graphic design of people in boxes" />
+          <p>Add contact information for people associated with the company</p>
         </div>
         <div className="step">
         <h2>Step 3: </h2>
-           Set follow up dates to get back to contacts and check on applications
-           (Feature in Progress)
+        <img src={calendar} alt="graphic design of woman looking at calendar and posting events"/>
+           Set dates on your online calendar to follow-up on job opportunities(feature in progress)
         </div>
     </section>
        <div className="button-holder"><Link to="/jobs" id="get-started">Get Started!</Link></div> 
