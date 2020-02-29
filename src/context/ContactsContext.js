@@ -43,6 +43,7 @@ const ContactsContextProvider = props => {
               contact[key]='';
             }
           }
+         
           setSingleContact(contact)
         })
         .catch(res => setContactsError(res.error))
@@ -73,7 +74,7 @@ const ContactsContextProvider = props => {
     })
     .catch(res => setContactsError(res.error))
   }
-  const editContact = (contact) => {
+  const editContact = (contact, jobId) => {
     for (let [key, value] of Object.entries(contact)){
       if (value ===''){
         contact[key]=null;
@@ -91,6 +92,7 @@ const ContactsContextProvider = props => {
       if (!response.ok) {
         return response.json().then(e =>Promise.reject(e))
       }
+      history.push(`/job-detail/${jobId}`)
       getContactById(contact.id)
     })
   

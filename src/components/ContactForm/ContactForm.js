@@ -40,7 +40,7 @@ const ContactForm = (props) => {
     //edit if there is an id, just create new contact if not
  if (props.contactId){
   
-   editContact(contactEntry)
+   editContact(contactEntry, singleJob.id)
  }
  else {
   addContact(contactEntry, singleJob.id);

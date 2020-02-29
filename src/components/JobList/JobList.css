@@ -11,11 +11,13 @@
 .applied {
     font-size:20px;
 }
-#add-job-button, .view-details {
-    color:darkslategray;
+#add-job-button {
+    color:royalblue;
     text-decoration:none; 
   }
   .view-details {
+    color:darkslategray;
+    text-decoration:none; 
       font-size:30px;
   }
 span {
@@ -32,7 +34,7 @@ span {
     background:white;
     border:none;
     flex-basis:auto;
-    font-size:20px;
+    font-size:16px;
     
 }
 
