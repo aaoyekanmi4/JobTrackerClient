@@ -8,9 +8,11 @@ const Nav = () => {
   return (
     <nav>
       <ul className="nav-links">
+      {loggedIn ? (
         <li className="nav-link">
           <Link to="/jobs">Your Jobs</Link>
         </li>
+      ) : ''}
         <li className="nav-link">
           {" "}
           <Link to="/">Instructions</Link>
@@ -18,7 +20,7 @@ const Nav = () => {
         <li className="nav-link">
           {loggedIn ? (
             <button id="logout" onClick={() => logout()}>
-              Logout
+              Logout <i class="fas fa-sign-out-alt"></i>
             </button>
           ) : (
             <div className="nav-link">

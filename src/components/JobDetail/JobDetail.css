@@ -11,6 +11,9 @@
   padding-left:10%;
   
 }
+.company-role-list {
+  width:200px;
+}
 #add-contact-button {
   color:royalblue;
   text-decoration:none; 
@@ -34,6 +37,13 @@
   font-size:3rem;
   color:royalblue;
 }
+#contacts-empty {
+  font-size:2rem;
+
+  margin:10% auto;
+  width:fit-content;
+  color:darkslategray;
+}
 #role-detail, #location {
   font-size:2rem;
   color:darkslategray;
@@ -51,6 +61,7 @@
 #contacts {
   
   height: 300px;
+  max-width:100%;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -102,7 +113,7 @@ h4 {
   }
 
  .contact {
-   flex:1;
+   flex:100%;
  }
 
   ul {
@@ -119,10 +130,7 @@ h4 {
     flex-direction: column;
     margin-top:2rem;
   }
-  #contacts {
-    flex-direction:column;
-    width:100%;
-  }
+ 
   #job-details,
   #job-status {
     flex: 100%;

@@ -55,20 +55,20 @@ const ContactForm = (props) => {
       <p>Required *</p>
       <h1>Add/Edit Contact at {singleJob.company}</h1>
     
-      <label htmlFor="name">Name *</label>
-      <input type="text" id="name" name="name"value={contactEntry.name} onChange={handleChange} />
-      <label htmlFor="role">Role *</label>
-      <input type="text" id="role" name="role"  value={contactEntry.role} onChange={handleChange} />
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" name="email"    value={contactEntry.email}onChange={handleChange} />
-      <label htmlFor="phone">Phone</label>
-      <input type="tel" id="phone" name="phone"  value={contactEntry.phone} onChange={handleChange} />
-      <label htmlFor="contact_url">contactURL</label>
-      <input type="text" id="contact_url" name="contact_url" value={contactEntry.contact_url} onChange={handleChange} />
-      <label htmlFor="last_contacted">Last Contacted</label>
-      <input type="date" id="last_contacted" name="last_contacted" value={contactEntry.last_contacted} onChange={handleChange} />
-      <div className="button-holder">
-        <input type="submit" value="Add Contact" />
+      <label className="form-label" htmlFor="name">Name *</label>
+      <input className="form-input" type="text" id="name" name="name"value={contactEntry.name} onChange={handleChange} />
+      <label className="form-label" htmlFor="role">Role *</label>
+      <input className="form-input"  type="text" id="role" name="role"  value={contactEntry.role} onChange={handleChange} />
+      <label className="form-label" htmlFor="email">Email</label>
+      <input  className="form-input" type="email" id="email" name="email"    value={contactEntry.email}onChange={handleChange} />
+      <label className="form-label" htmlFor="phone">Phone</label>
+      <input  className="form-input" type="tel" id="phone" name="phone"  value={contactEntry.phone} onChange={handleChange} />
+      <label  className="form-label" htmlFor="contact_url">contactURL</label>
+      <input  className="form-input" type="text" id="contact_url" name="contact_url" value={contactEntry.contact_url} onChange={handleChange} />
+      <label className="form-label" htmlFor="last_contacted">Last Contacted</label>
+      <input className="form-input"  type="date" id="last_contacted" name="last_contacted" value={contactEntry.last_contacted} onChange={handleChange} />
+      <div className="form-submit-button button-holder">
+        <input  type="submit" value="Add Contact" />
       </div>
     </form>
   );

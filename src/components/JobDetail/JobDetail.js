@@ -40,16 +40,17 @@ const JobDetail = props => {
      
           <span className="contact-role">{contact.role}</span>
         </h5>
-        {contact.contact_url? 
-        <h5>
-      Url: <span id="contact-url">{contact.contact_url}</span>
-        </h5>:''}
+      
         <h5>
  Email: <span id="contact-email">{contact.email}</span>
         </h5>
         <h5>
       Phone: <span id="contact-phone">{contact.phone}</span>
         </h5>
+        {contact.contact_url? 
+        <h5>
+      url: <span id="contact-url">{contact.contact_url}</span>
+        </h5>:''}
         <h5>
       Last Contacted: <span id="contact-last-date">{moment(singleJob.date_created).format("MMM DD, YYYY")}</span>
         </h5>
@@ -85,13 +86,13 @@ const JobDetail = props => {
             </h3>
 
             <h4>
-              Phone Screen: <span id="phone screen">{singleJob.phone_screen}</span>
+            Phone Screen: <span id="application-status">{singleJob.phone_screen ? moment(singleJob.phone_screen).format("MMM DD, YYYY"):''}</span>
             </h4>
             <h4>
-              Interview: <span id="interview-status">{singleJob.interview}</span>
+            Interview: <span id="application-status">{singleJob.interview ? moment(singleJob.interview).format("MMM DD, YYYY"):''}</span>
             </h4>
             <h4>
-              Offer: <span id="offer">{singleJob.offer}</span>
+            Offer: <span id="application-status">{singleJob.offer ? moment(singleJob.offer).format("MMM DD, YYYY"):''}</span>
             </h4>
           </div>
         </div>
@@ -102,7 +103,7 @@ const JobDetail = props => {
         <div id="contacts">
          
         
-          {contactsList}
+          {contacts.length? contactsList : <h1 id="contacts-empty">No contacts added yet</h1>}
         </div>
       </div>
     </main>

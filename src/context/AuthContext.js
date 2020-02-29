@@ -54,7 +54,7 @@ const sendLoginCredentials = (credentials) => {
               console.log(responseJSON)
               setLoggedIn(true);
               TokenService.saveAuthToken(responseJSON.authToken)
-              history.push('/')
+              history.push('/jobs')
           })
           .catch(res => setError(res.error))
      }

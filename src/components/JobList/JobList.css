@@ -8,18 +8,34 @@
     flex:1;
 
 }
+.applied {
+    font-size:20px;
+}
+#add-job-button, .view-details {
+    color:darkslategray;
+    text-decoration:none; 
+  }
+  .view-details {
+      font-size:30px;
+  }
 span {
     width:25%;
 }
-#trash-icon {
-    padding-top:10px;
+.list-date {
+    width:fit-content;
+    margin-right:100px;
+}
+#trash-icon-holder {
+
     width:25%;
     color:red;
     background:white;
     border:none;
     flex-basis:auto;
+    font-size:20px;
     
 }
+
 .delete-icon-text {
     margin-top:5px;
 }
@@ -56,6 +72,7 @@ ul {
 
 
 #company {
+    color:royalblue;
     font-size:20px;
     font-weight:700;
     text-transform:capitalize;
@@ -100,6 +117,7 @@ h1 {
         margin:0 auto;
         padding:0;
     }
+
     form {
         max-width:100%;
     }
@@ -113,7 +131,7 @@ h1 {
     #job-details, #job-status {
         flex:100%;
     }
-    .applied {
+    .applied, .list-date, #trash-icon-holder {
         display:none;
     }
     
