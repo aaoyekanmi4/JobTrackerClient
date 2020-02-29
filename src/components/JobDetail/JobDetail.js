@@ -58,24 +58,26 @@ const JobDetail = props => {
     
   return (
     <main>
-      <h1>Job Detail</h1>
+    
       <div id="details-container">
         <div class="job-and-status">
           <div id="job-details">
-          <Link to={`/edit-job/${props.jobId}`}>
-              <div>Edit Job</div>
+          <Link id="detail-edit-button" to={`/edit-job/${props.jobId}`}>
+          <i class="fas fa-edit"></i> Edit Job
             </Link>
             <h2 id="company-detail">{singleJob.company}</h2>
-            <h2 id="role-detail">{singleJob.job_role}</h2>
-            <h3 id="location">{singleJob.location}</h3>
-            <h3>
-  Date Added: <span id="date-detail">{moment(singleJob.date_created).format("MMM DD, YYYY")}</span>
-            </h3>
+            <h2 id="role-detail">Role: {singleJob.job_role}</h2>
+            <h3 id="location"> Location: {singleJob.job_location}</h3>
+          
             <article>
               <span><h3>Description:</h3> </span>{singleJob.job_description}
             </article>
           </div>
           <div id="job-status">
+            <h2 id="status-title">Status</h2>
+          <h3>
+  Date Added: <span id="date-detail">{moment(singleJob.date_created).format("MMM DD, YYYY")}</span>
+            </h3>
             <h3>
               Applied: <span id="application-status">{singleJob.applied ? moment(singleJob.applied).format("MMM DD, YYYY"):''}</span>
             </h3>
@@ -91,7 +93,7 @@ const JobDetail = props => {
             </h4>
           </div>
         </div>
-        <h2>Contacts</h2>
+        <h2 id="contacts-title">Contacts</h2>
         <div id="contacts">
          
           <Link to="/add-contact">

@@ -11,7 +11,8 @@ nav {
 .nav-links {
     list-style-type:none;
     display:flex;
-    width:fit-content;
+    width:50%;
+    justify-content:space-evenly;
     margin-left:auto;
     margin-top:0px;
 
@@ -19,8 +20,10 @@ nav {
 .nav-link{
     border:none;
     text-transform:capitalize;
-    font-weight:600;
-    margin: 0px 20px;
+  
+ 
+    color:white;
+    font-size:16px;
 
 }
 .nav-link > a {
@@ -30,3 +33,9 @@ nav {
 .nav-link:hover {
     color:white;
 }
+
+@media screen and (max-width:600px) { 
+    .nav-links {
+        width:100%;
+    }
+ }

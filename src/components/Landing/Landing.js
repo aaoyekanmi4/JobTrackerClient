@@ -23,10 +23,10 @@ const Landing = () => {
         <div className="step">
         <h2>Step 3: </h2>
         <img src={calendar} alt="graphic design of woman looking at calendar and posting events"/>
-           Set dates on your online calendar to follow-up on job opportunities(feature in progress)
+           <p>Set dates on your online calendar to follow-up on jobs</p>
         </div>
     </section>
-       <div className="button-holder"><Link to="/jobs" id="get-started">Get Started!</Link></div> 
+       <div className="button-holder"><Link to="/jobs" id="get-started">Get Started</Link></div> 
     </main>
     )
 }

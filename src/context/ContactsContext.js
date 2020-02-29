@@ -24,7 +24,7 @@ const ContactsContextProvider = props => {
       .catch(res => setContactsError(res.error));
   };
   const getContactById=(id)=> {
-    fetch(`${API_BASE_URL}//api/contacts/${id}`, {
+    fetch(`${API_BASE_URL}/api/contacts/${id}`, {
         headers:{'authorization': `bearer ${TokenService.getAuthToken()}`}
       } 
       )

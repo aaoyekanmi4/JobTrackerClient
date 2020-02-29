@@ -31,14 +31,14 @@ const SignUp = () => {
       <form onSubmit = {handleRegisterUser}>
         {error && <p className="error">{error}</p>}
         <h1>Sign Up</h1>
-        <label htmlFor="username">Name</label>
-        <input type="text" id="username" name="user_name" onChange={handleChange}/>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" onChange={handleChange}/>
-        <label htmlFor="password">password</label>
-        <input type="password" id="password" name="password" onChange={handleChange}/>
-        <label htmlFor="password2">Confirm password</label>
-        <input type="password" id="password2" name="password2" onChange={handleChange}/>
+        <label className="form-label" htmlFor="username">Name</label>
+        <input className="form-input" type="text" id="username" name="user_name" onChange={handleChange}/>
+        <label className="form-label" htmlFor="email">Email</label>
+        <input className="form-input"  type="email" id="email" name="email" onChange={handleChange}/>
+        <label  className="form-label" htmlFor="password">password</label>
+        <input className="form-input"  type="password" id="password" name="password" onChange={handleChange}/>
+        <label className="form-label" htmlFor="password2">Confirm password</label>
+        <input className="form-input"  type="password" id="password2" name="password2" onChange={handleChange}/>
         <div className="button-holder"><input type="submit" value="Sign Up"/></div>
         <p class="form-question">Already a user? Login <Link to="/login">here</Link></p>
     </form>
