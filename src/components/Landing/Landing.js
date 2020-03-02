@@ -23,9 +23,13 @@ const Landing = () => {
         <div className="step">
         <h2>Step 3: </h2>
         <img src={calendar} alt="graphic design of woman looking at calendar and posting events"/>
-           <p>Set dates on your online calendar to follow-up on jobs</p>
+           <p>Set dates on your online calendar to follow-up on jobs(in progress)</p>
         </div>
+    
     </section>
+  <h3 className="demo">DEMO LOGIN</h3> 
+  <h3 className="demo">username:USER</h3>  
+  <h3 className="demo">password:PASSWORD</h3>
        <div className="button-holder"><Link to="/jobs" id="get-started">Get Started</Link></div> 
     </main>
     )

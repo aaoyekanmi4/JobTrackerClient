@@ -3,6 +3,9 @@ h1 {
     text-transform:uppercase;
 
 }
+.demo {
+    text-align:center;
+}
 #steps {
     margin-top:100px;
     display:flex;
