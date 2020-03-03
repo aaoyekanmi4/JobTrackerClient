@@ -1,6 +1,6 @@
 import React, { useContext,useEffect } from "react";
 import { Link } from "react-router-dom";
-import * as moment from "moment";
+import moment from "moment";
 import { JobsContext } from "../../context/JobsContext";
 import { ContactsContext} from '../../context/ContactsContext';
 
@@ -63,10 +63,10 @@ const JobDetail = props => {
     <main>
     
       <div id="details-container">
-        <div class="job-and-status">
+        <div className="job-and-status">
           <div id="job-details">
           <Link id="detail-edit-button" to={`/edit-job/${props.jobId}`}>
-          <i class="fas fa-edit"></i> Edit Job
+          <i className="fas fa-edit"></i> Edit Job
             </Link>
             <h2 id="company-detail">{singleJob.company}</h2>
             <h2 id="role-detail">Role: {singleJob.job_role}</h2>

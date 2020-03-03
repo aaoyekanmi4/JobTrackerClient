@@ -40,7 +40,7 @@ const SignUp = () => {
         <label className="form-label" htmlFor="password2">Confirm password</label>
         <input className="form-input"  type="password" id="password2" name="password2" onChange={handleChange}/>
         <div className= "form-submit-button button-holder"><input  type="submit" value="Sign Up"/></div>
-        <p class="form-question">Already a user? Login <Link to="/login">here</Link></p>
+        <p className="form-question">Already a user? Login <Link to="/login">here</Link></p>
     </form>
     )
 }
