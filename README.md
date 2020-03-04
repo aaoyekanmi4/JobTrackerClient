@@ -1,6 +1,6 @@
 # Job Tracker
-## https://job-tracker-client.now.sh/
-## API https://github.com/aaoyekanmi4/JobTrackerServer 
+## Live: https://job-tracker-client.now.sh/
+## API: https://github.com/aaoyekanmi4/JobTrackerServer 
 
 ## Summary
 JobTracker is an application that helps people keep track of jobs that they've applied to and their status. Users can create an account, add jobs to a list, and view details of each job. They can also add contacts associated with each job and their details.
