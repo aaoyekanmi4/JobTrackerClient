@@ -3,20 +3,19 @@
 .job-and-status {
   display: flex;
   flex-direction: row;
-  color:darkslategray;
+  color: darkslategray;
 }
 #job-details {
   flex: 60%;
-  padding-top:7%;
-  padding-left:10%;
-  
+  padding-top: 7%;
+  padding-left: 10%;
 }
 .company-role-list {
-  width:200px;
+  width: 200px;
 }
 #add-contact-button {
-  color:royalblue;
-  text-decoration:none; 
+  color: royalblue;
+  text-decoration: none;
 }
 #contacts-title {
   color: royalblue;
@@ -24,76 +23,75 @@
   font-size: 2.5rem;
   text-align: center;
 }
-#detail-edit-button{
-  color:#34ce34;
-  text-decoration:none;
-  font-size:20px;
-  font-weight:600;
-  width:fit-content;
-  float:right;
-  padding-right:10px;
+#detail-edit-button {
+  color: #34ce34;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  width: fit-content;
+  float: right;
+  padding-right: 10px;
 }
 #company-detail {
-  font-size:3rem;
-  color:royalblue;
+  font-size: 3rem;
+  color: royalblue;
 }
 #contacts-empty {
-  font-size:2rem;
+  font-size: 2rem;
 
-  margin:10% auto;
-  width:fit-content;
-  color:darkslategray;
+  margin: 10% auto;
+  width: fit-content;
+  color: darkslategray;
 }
-#role-detail, #location {
-  font-size:2rem;
-  color:darkslategray;
+#role-detail,
+#location {
+  font-size: 2rem;
+  color: darkslategray;
 }
 #status-title {
-  font-size:2rem;
-  color:royalblue;
+  font-size: 2rem;
+  color: royalblue;
 }
 #job-status {
   flex: 40%;
- 
-  padding-top:7%;
-  padding-left:10%;
+
+  padding-top: 7%;
+  padding-left: 10%;
 }
 #contacts {
-  
   height: 300px;
-  max-width:100%;
+  max-width: 100%;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
 }
-.edit-delete-contact{
-  width:fit-content;
-  float:right;
+.edit-delete-contact {
+  width: fit-content;
+  float: right;
 }
-.contact-content{
+.contact-content {
   padding-top: 20px;
   width: fit-content;
   margin: 0 auto;
-
 }
 .contact-name {
-  color:darkslategray;
-  font-size:25px;
+  color: darkslategray;
+  font-size: 25px;
 }
 .contact {
-  font-size:20px;
+  font-size: 20px;
   width: 400px;
-  margin-top:20px;
-  border-radius:5px;
+  margin-top: 20px;
+  border-radius: 5px;
   box-shadow: 5px 10px 18px lightgray;
   height: 350px;
- 
+
   flex: 0 0 33.333333%;
 }
 .contact-role {
   text-transform: capitalize;
-  color:darkslategray;
+  color: darkslategray;
 }
 #custom {
   width: 200px;
@@ -112,9 +110,9 @@ h4 {
     width: 100%;
   }
 
- .contact {
-   flex:100%;
- }
+  .contact {
+    flex: 100%;
+  }
 
   ul {
     margin: 0 auto;
@@ -128,12 +126,12 @@ h4 {
   }
   .job-and-status {
     flex-direction: column;
-    margin-top:2rem;
+    margin-top: 2rem;
   }
- 
+
   #job-details,
   #job-status {
     flex: 100%;
-    padding:0;
+    padding: 0;
   }
 }

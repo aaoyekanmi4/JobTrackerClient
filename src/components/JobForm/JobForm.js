@@ -56,7 +56,7 @@ const JobForm = props => {
       <p>* Required</p>
       {error && <p className="error">{error}</p>}
       <div id="job-overview">
-        <h1>Add/Edit Job</h1>
+        <h1>{props.jobId ? "Edit Job Details" : "Add Job Details"}</h1>
         <label className="form-label" htmlFor="company">
           {" "}
           Company Name *
@@ -115,7 +115,7 @@ const JobForm = props => {
         />
       </div>
       <div id="job-status-form">
-        <h1>Add/Edit Status</h1>
+        <h1>{props.jobId ? "Edit Status" : "Add Status"}</h1>
         <label className="form-label" htmlFor="applied">
           {" "}
           Applied
@@ -163,7 +163,7 @@ const JobForm = props => {
         />
       </div>
       <div className="form-submit-button button-holder">
-        <input type="submit" value="Add Job" />
+        <input type="submit" value={props.jobId ? "Edit Job" : "Add Job"} />
       </div>
     </form>
   );

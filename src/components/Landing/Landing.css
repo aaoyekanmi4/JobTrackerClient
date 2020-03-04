@@ -1,51 +1,47 @@
 /* Landing */
 h1 {
-    text-transform:uppercase;
-
+  text-transform: uppercase;
 }
 .demo {
-    text-align:center;
+  text-align: center;
 }
 #steps {
-    margin-top:100px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-evenly;
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#landing-pw {
+  margin-left:20px;
 }
 img {
-    width:100%;
-    height:180px;
+  width: 100%;
+  height: 180px;
 }
 .step {
-  
-    color:royalblue;
-    text-align:center;
-    padding:20px;
-    width:300px;
-    height:350px;
+  color: royalblue;
+  text-align: center;
+  padding: 20px;
+  width: 300px;
+  height: 350px;
 }
 
 #get-started {
-    width:300px;
-    font-size:16px;   
-    text-align:center;  
-    font-weight:600;
-    text-decoration:none;
-    padding:10px;
-    letter-spacing: 1px;
-    color:white;
-   
+  width: 300px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px;
+  letter-spacing: 1px;
+  color: white;
 }
 .button-holder {
-    margin: 5% auto;
-    width:300px;
-    background:royalblue;
-    border-radius:5px;
-    padding:10px;
-    text-align:center;
-    text-transform:uppercase;
-
-    
-   
-
+  margin: 5% auto;
+  width: 300px;
+  background: royalblue;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
 }

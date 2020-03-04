@@ -6,7 +6,7 @@ import "./JobList.css";
 
 const JobList = () => {
   const { getAllJobs, jobs, error, deleteJob } = useContext(JobsContext);
-  
+
   useEffect(() => {
     if (!error) {
       getAllJobs();
@@ -16,7 +16,7 @@ const JobList = () => {
 
   //Create a list item for each job returned from api call
   const jobListItems = () => {
-    return jobs.map((job,index) => (
+    return jobs.map((job, index) => (
       <li key={index}>
         <span className="list-date">
           <p id="month">{moment(job.date_created).format("MMM")}</p>
@@ -32,13 +32,16 @@ const JobList = () => {
         >
           {job.applied ? "Applied" : "Not Applied"}
         </span>
- 
-        <button id="trash-icon-holder" ><span onClick={()=>deleteJob(job.id)}>Delete Job</span></button>
-           
+
+        <button id="trash-icon-holder">
+          <span onClick={() => deleteJob(job.id)}>Delete Job</span>
+        </button>
+
         <Link className="view-details" to={`/job-detail/${job.id}`}>
-          <span ><i class="fas fa-chevron-right"></i></span>
+          <span>
+            <i class="fas fa-chevron-right"></i>
+          </span>
         </Link>
-     
       </li>
     ));
   };
@@ -46,9 +49,10 @@ const JobList = () => {
     <section className="jobs">
       <h1>Saved Jobs</h1>
       <div id="jobs-list-container">
-      <Link id="add-job-button" to="/add-job">+ Add Job</Link>
-        <ul>{jobs.length? jobListItems() : <h2>No jobs added yet</h2>}</ul>
-       
+        <Link id="add-job-button" to="/add-job">
+          + Add Job
+        </Link>
+        <ul>{jobs.length ? jobListItems() : <h2>No jobs added yet</h2>}</ul>
       </div>
     </section>
   );
