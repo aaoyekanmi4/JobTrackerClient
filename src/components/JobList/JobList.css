@@ -128,6 +128,7 @@ h1 {
     flex: 100%;
   }
   .applied,
+  .not-applied,
   .list-date,
   #trash-icon-holder {
     display: none;

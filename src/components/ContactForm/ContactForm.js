@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ContactsContext } from "../../context/ContactsContext";
 import { JobsContext } from "../../context/JobsContext";
-import { useHistory } from "react-router-dom";
+
 import "./ContactForm.css";
 const ContactForm = props => {
-  const history = useHistory();
+
   const { singleJob } = useContext(JobsContext);
   const { addContact, contacts, editContact, contactError } = useContext(
     ContactsContext
