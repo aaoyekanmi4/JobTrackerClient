@@ -51,7 +51,7 @@ const JobsContextProvider = props => {
         job[key] = null;
       }
     }
-    console.log(job);
+    
     fetch(`${API_BASE_URL}/api/jobs/`, {
       method: "POST",
       headers: {
@@ -69,7 +69,7 @@ const JobsContextProvider = props => {
         return response.json();
       })
       .catch(res => {
-        console.log(res);
+      
         setError(res.error);
       });
   };

@@ -25,7 +25,7 @@ const AuthContextProvider = props => {
         return response.json();
       })
       .then(responseJSON => {
-        console.log(responseJSON);
+      
         TokenService.saveAuthToken(responseJSON.authToken);
 
         setLoggedIn(true);
@@ -49,7 +49,7 @@ const AuthContextProvider = props => {
         return response.json();
       })
       .then(responseJSON => {
-        console.log(responseJSON);
+      
         setLoggedIn(true);
         TokenService.saveAuthToken(responseJSON.authToken);
         history.push("/jobs");

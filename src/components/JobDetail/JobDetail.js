@@ -14,7 +14,7 @@ const JobDetail = props => {
   //Call the fetch API to GET job and contacts on mount
   useEffect(() => {
     if (!error || !contactsError) {
-      console.log(props);
+   
       getJobById(props.jobId);
       getAllContacts(props.jobId);
     }
