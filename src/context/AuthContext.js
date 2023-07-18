@@ -9,7 +9,7 @@ const AuthContextProvider = props => {
   const history = useHistory();
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState("");
-  
+
   const sendLoginCredentials = credentials => {
     fetch(`${API_BASE_URL}/api/auth/login`, {
       method: "POST",
@@ -20,12 +20,13 @@ const AuthContextProvider = props => {
     })
       .then(response => {
         if (!response.ok) {
+          console.log(response);
           return response.json().then(e => Promise.reject(e));
         }
         return response.json();
       })
       .then(responseJSON => {
-      
+
         TokenService.saveAuthToken(responseJSON.authToken);
 
         setLoggedIn(true);
@@ -49,7 +50,7 @@ const AuthContextProvider = props => {
         return response.json();
       })
       .then(responseJSON => {
-      
+
         setLoggedIn(true);
         TokenService.saveAuthToken(responseJSON.authToken);
         history.push("/jobs");

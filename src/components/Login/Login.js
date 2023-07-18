@@ -27,7 +27,7 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmitCredentials}>
       <h1>Login</h1>
-      {error && <p className="error">{error}</p>}
+      {error && <p className="error">{error.statusText}</p>}
       <label className="form-label" htmlFor="username">
         username
       </label>
