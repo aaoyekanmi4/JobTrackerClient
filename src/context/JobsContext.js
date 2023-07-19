@@ -21,7 +21,7 @@ const JobsContextProvider = props => {
         return response.json();
       })
       .then(responseJSON => setJobs(responseJSON))
-      .catch(res => setError(res.error));
+      .catch(res =>console.log(res.error));
   };
 
   const getJobById = id => {
@@ -42,7 +42,7 @@ const JobsContextProvider = props => {
         }
         setSingleJob(job);
       })
-      .catch(res => setError(res.error));
+      .catch(res => console.log(res.error));
   };
 
   const addJob = job => {
@@ -51,7 +51,7 @@ const JobsContextProvider = props => {
         job[key] = null;
       }
     }
-    
+
     fetch(`${API_BASE_URL}/api/jobs/`, {
       method: "POST",
       headers: {
@@ -69,8 +69,7 @@ const JobsContextProvider = props => {
         return response.json();
       })
       .catch(res => {
-      
-        setError(res.error);
+        console.log(res.error)
       });
   };
   const editJob = job => {
@@ -97,7 +96,7 @@ const JobsContextProvider = props => {
         history.push("/jobs");
         getAllJobs();
       })
-      .catch(res => setError(res.error));
+      .catch(res => console.log(res.error));
   };
   const deleteJob = id => {
     fetch(`${API_BASE_URL}/api/jobs/${id}`, {
@@ -114,7 +113,7 @@ const JobsContextProvider = props => {
         setJobs(prevJobs => prevJobs.filter(job => job.id !== id));
         return response.json();
       })
-      .catch(res => setError(res.error));
+      .catch(res => console.log(res.error));
   };
   return (
     <JobsContext.Provider
