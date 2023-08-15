@@ -32,7 +32,7 @@ const AuthContextProvider = props => {
         setLoggedIn(true);
         history.push("/jobs");
       })
-      .catch(res => console.log(res.error));
+      .catch(res => setError(res.error));
   };
 
   const registerUser = credentials => {
@@ -55,7 +55,7 @@ const AuthContextProvider = props => {
         TokenService.saveAuthToken(responseJSON.authToken);
         history.push("/jobs");
       })
-      .catch(res => console.log(res.error));
+      .catch(res => setError(res.error));
   };
 
   const logout = () => {
